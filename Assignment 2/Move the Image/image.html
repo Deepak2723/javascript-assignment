@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Movement</title>
+  <style>
+    #image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: top 0.2s, left 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <img id="image" src="./image.png">
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var image = document.getElementById("image");
+      var imageTop = 0;
+      var imageLeft = 0;
+      var moveDistance = 10;
+
+      function handleKeyDown(event) {
+        var key = event.key;
+
+        switch (key) {
+          case "ArrowUp":
+            imageTop -= moveDistance;
+            break;
+          case "ArrowDown":
+            imageTop += moveDistance;
+            break;
+          case "ArrowLeft":
+            imageLeft -= moveDistance;
+            break;
+          case "ArrowRight":
+            imageLeft += moveDistance;
+            break;
+        }
+
+        image.style.top = imageTop + "px";
+        image.style.left = imageLeft + "px";
+      }
+
+      document.addEventListener("keydown", handleKeyDown);
+    });
+  </script>
+</body>
+</html>

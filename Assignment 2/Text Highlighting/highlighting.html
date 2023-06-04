@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Highlight Words</title>
+  <style>
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <p id="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla mi ut enim faucibus aliquet.</p>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var paragraph = document.getElementById("paragraph");
+      var words = paragraph.textContent.split(" ");
+
+      words.forEach(function(word, index) {
+        if (word.length > 8) {
+          var span = document.createElement("span");
+          span.textContent = word;
+          span.classList.add("highlight");
+          paragraph.replaceChild(span, paragraph.childNodes[index]);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
